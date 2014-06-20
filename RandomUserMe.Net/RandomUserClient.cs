@@ -7,7 +7,7 @@ using RandomUserMe.Net.Domain;
 
 namespace RandomUserMe.Net
 {
-    public class RandomUserClient
+    public class RandomUserClient : IRandomUserClient
     {
         private readonly HttpClient _client;
 

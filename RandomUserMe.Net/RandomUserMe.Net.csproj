@@ -56,6 +56,7 @@
     <Compile Include="Domain\User.cs" />
     <Compile Include="GetUsersRequestOptions.cs" />
     <Compile Include="GetUsersResponse.cs" />
+    <Compile Include="IRandomUserClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RandomUserClient.cs" />
   </ItemGroup>

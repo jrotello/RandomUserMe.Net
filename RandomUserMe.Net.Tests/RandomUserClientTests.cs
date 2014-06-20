@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
+using NUnit.Framework.Constraints;
 using RandomUserMe.Net.Domain;
 
 namespace RandomUserMe.Net.Tests
@@ -8,13 +9,27 @@ namespace RandomUserMe.Net.Tests
     [TestFixture]
     public class RandomUserClientTests
     {
+        private IRandomUserClient _client;
+
+        [SetUp]
+        public void Setup()
+        {
+            _client = new RandomUserClient();
+        }
+
+        [TearDown]
+        public void TearDown()
+        {
+            _client = null;
+        }
+
+
         [TestCase(0, 1)]
         [TestCase(1, 1)]
         [TestCase(20, 20)]
         public async void GetRandomUsers_ReturnsCorrectNumberOfUsers(int count, int expected)
         {
-            var client = new RandomUserClient();
-            IEnumerable<RandomUser> users = await client.GetRandomUsersAsync(count);
+            IEnumerable<RandomUser> users = await _client.GetRandomUsersAsync(count);
 
             Assert.AreEqual(expected, users.Count());
         }
@@ -23,8 +38,7 @@ namespace RandomUserMe.Net.Tests
         [TestCase(Gender.Female)]
         public async void GetRandomUsers_ReturnsSpecificGender(Gender gender)
         {
-            var client = new RandomUserClient();
-            IEnumerable<RandomUser> users = await client.GetRandomUsersAsync(20, gender);
+            IEnumerable<RandomUser> users = await _client.GetRandomUsersAsync(20, gender);
 
             var genders = users.Select(u => u.User.Gender).Distinct().ToList();
             Assert.AreEqual(1, genders.Count);
@@ -43,8 +57,7 @@ namespace RandomUserMe.Net.Tests
         [Test]
         public async void GetRandomUserAsync_WithSeed()
         {
-            var client = new RandomUserClient();
-            RandomUser randomUser = await client.GetRandomUserAsync("JasonR");
+            RandomUser randomUser = await _client.GetRandomUserAsync("JasonR");
 
             Assert.AreEqual("isaac", randomUser.User.Name.First);
             Assert.AreEqual("stewart", randomUser.User.Name.Last);
@@ -54,8 +67,7 @@ namespace RandomUserMe.Net.Tests
         [TestCase(Gender.Female)]
         public async void GetRandomUserAsync_WithGender(Gender gender)
         {
-            var client = new RandomUserClient();
-            RandomUser randomUser = await client.GetRandomUserAsync(gender);
+            RandomUser randomUser = await _client.GetRandomUserAsync(gender);
 
             Assert.AreEqual(gender, randomUser.User.Gender);
         }
