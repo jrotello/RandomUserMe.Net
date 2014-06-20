@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using RandomUserMe.Net.Converters;
 
-namespace RandomUserMe.Net.Entities
+namespace RandomUserMe.Net.Domain
 {
     public class User
     {

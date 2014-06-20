@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
-using RandomUserMe.Net.Entities;
+using RandomUserMe.Net.Domain;
 
 namespace RandomUserMe.Net.Tests
 {

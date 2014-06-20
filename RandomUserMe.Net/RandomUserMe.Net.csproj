@@ -49,11 +49,11 @@
   <ItemGroup>
     <Compile Include="Converters\UnixDateTimeConverter.cs" />
     <Compile Include="Converters\UriConverter.cs" />
-    <Compile Include="Entities\Gender.cs" />
-    <Compile Include="Entities\Location.cs" />
-    <Compile Include="Entities\Name.cs" />
-    <Compile Include="Entities\RandomUser.cs" />
-    <Compile Include="Entities\User.cs" />
+    <Compile Include="Domain\Gender.cs" />
+    <Compile Include="Domain\Location.cs" />
+    <Compile Include="Domain\Name.cs" />
+    <Compile Include="Domain\RandomUser.cs" />
+    <Compile Include="Domain\User.cs" />
     <Compile Include="GetUsersRequestOptions.cs" />
     <Compile Include="GetUsersResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

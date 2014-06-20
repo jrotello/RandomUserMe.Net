@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using RandomUserMe.Net.Entities;
+using RandomUserMe.Net.Domain;
 
 namespace RandomUserMe.Net
 {
