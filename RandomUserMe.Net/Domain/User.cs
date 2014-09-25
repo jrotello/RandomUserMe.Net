@@ -26,7 +26,6 @@ namespace RandomUserMe.Net.Domain
         public string Phone { get; set; }
         public string Cell { get; set; }
         public string SSN { get; set; }
-        [JsonConverter(typeof(UriConverter))]
-        public Uri Picture { get; set; }
+        public UserPictureInfo Picture { get; set; }
     }
 }

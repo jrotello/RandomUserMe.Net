@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
 using NUnit.Framework.Constraints;
@@ -59,8 +60,11 @@ namespace RandomUserMe.Net.Tests
         {
             RandomUser randomUser = await _client.GetRandomUserAsync("JasonR");
 
-            Assert.AreEqual("isaac", randomUser.User.Name.First);
-            Assert.AreEqual("stewart", randomUser.User.Name.Last);
+            // Seeds are not preserved across API versions.
+            //Assert.AreEqual("isaac", randomUser.User.Name.First);
+            //Assert.AreEqual("stewart", randomUser.User.Name.Last);
+            Assert.AreEqual("claude", randomUser.User.Name.First);
+            Assert.AreEqual("cooper", randomUser.User.Name.Last);
         }
 
         [TestCase(Gender.Male)]

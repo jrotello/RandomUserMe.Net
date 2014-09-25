@@ -14,7 +14,7 @@ namespace RandomUserMe.Net
         public RandomUserClient()
         {
             _client = new HttpClient();
-            _client.BaseAddress = new Uri("http://api.randomuser.me");
+            _client.BaseAddress = new Uri("http://api.randomuser.me/0.4.1");
         }
 
         public async Task<RandomUser> GetRandomUserAsync(Gender gender)
