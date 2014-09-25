@@ -51,5 +51,33 @@ namespace RandomUserMe.Net
 
             return users;
         }
+
+        private bool _disposed;
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected void Dispose(bool disposing)
+        {
+            if (_disposed)
+            {
+                return;
+            }
+
+            try
+            {
+                if (disposing)
+                {
+                    _client.Dispose();
+                }
+            }
+            finally
+            {
+                _disposed = true;
+            }
+        }
     }
 }

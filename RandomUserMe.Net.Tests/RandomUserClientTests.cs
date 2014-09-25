@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
-using NUnit.Framework.Constraints;
 using RandomUserMe.Net.Domain;
 
 namespace RandomUserMe.Net.Tests
@@ -21,6 +20,7 @@ namespace RandomUserMe.Net.Tests
         [TearDown]
         public void TearDown()
         {
+            _client.Dispose();
             _client = null;
         }
 
